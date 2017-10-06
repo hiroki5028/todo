@@ -2,5 +2,12 @@
 
 <%= render 'form', task: @task %>
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<div class="edit-link">
+  <div class="show">
+    <%= link_to 'Show', @task %>
+  </div>
+
+  <div class="back">
+    <%= link_to 'Back', tasks_path %>
+  </div>
+</div>

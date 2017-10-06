@@ -1,13 +1,6 @@
 body {
   background-color: #fff;
   color: #333;
-  margin: 33px;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -22,14 +15,6 @@ pre {
 a {
   color: #000;
 
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 th {
@@ -82,3 +67,173 @@ div {
 label {
   display: block;
 }
+
+ header {
+    display: table;
+    position: relative;
+    background-color: DeepSkyBlue;
+    height: 50px;
+    overflow: hidden;
+    width: 100%;
+ }
+
+ div.header-title {
+    display: table-cell;
+    margin: 10px;
+    padding: 15px 0;
+    text-align: left;
+    font-size:20px;
+    color: White;
+ }
+
+ div.header-link {
+    margin: 10px;
+    padding: 15px 0;
+    text-align: left;
+    display: table-cell;
+    width: 50px;
+ }
+
+ nav {
+    border-bottom: 1px solid LightGrey;
+ }
+
+ ul {
+    background: white;
+    padding: 0 0.5em;
+    position: relative;
+ }
+
+ ul li {
+    line-height: 1.5;
+    padding: 0.5em 0 0.5em 1.5em;
+    list-style-type: none!important;
+ }
+
+ ul li:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+    position: absolute;
+    left : 0.5em;
+    color: #668ad8;
+ }
+
+ ul li:last-of-type {
+    border-bottom: none;
+ }
+
+ div.list-title {
+    float: left;
+    width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*display: none;*/
+
+    &.expired {
+      color: red;
+    }
+ }
+
+ div.list-link {
+    font-size: 13px;
+    float: right;
+    margin-right: 5px;
+    text-align: center;
+    text-decoration: none;
+ }
+
+ div.list-link a {
+    background-color:white;
+    border:1px solid LightGrey;
+    padding:1px 8px;
+    border-radius:5px;
+    cursor:pointer;
+    text-decoration: none;
+ }
+
+ div.list-link :hover{
+    background-color:LightGrey;
+ }
+
+ div.new-task a {
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    cursor: default;
+    background-color:DeepSkyBlue;
+    border:1px solid LightGrey;
+    padding:1px 8px;
+    border-radius:5px;
+    cursor:pointer;
+    text-decoration: none;
+    color:White;
+ }
+
+ div.new-task :hover {
+    color:Black;
+    background-color:DeepSkyBlue
+ }
+
+ div.back a {
+    background-color:white;
+    border:1px solid LightGrey;
+    padding:1px 8px;
+    border-radius:5px;
+    cursor:pointer;
+    text-decoration: none;
+    float: left;
+    margin-top: 5px;
+ }
+
+ div.show a {
+    background-color:white;
+    border:1px solid LightGrey;
+    padding:1px 8px;
+    border-radius:5px;
+    cursor:pointer;
+    text-decoration: none;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+ }
+
+ div.edit a {
+    background-color:white;
+    border:1px solid LightGrey;
+    padding:1px 8px;
+    border-radius:5px;
+    cursor:pointer;
+    text-decoration: none;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+ }
+
+ div.link {
+    overflow: hidden;
+ }
+
+  table.show {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+  }
+
+  table.show th {
+    width: 120px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #efefef;
+  }
+
+  table.show td {
+    /*width: 600px;*/
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }

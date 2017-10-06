@@ -1,29 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
+<h1>Show</h1>
+<div>
+  <table class="show">
+  	<tr>
+  		<th scope="row">Title</th>
+  		<td><%= @task.title %></td>
+  	</tr>
+  	<tr>
+  		<th scope="row">Description</th>
+  		<td><%= @task.description %></td>
+  	</tr>
+  	<tr>
+  		<th scope="row">Expired at</th>
+  		<td><%= @task.expired_at %></td>
+  	</tr>
+    <tr>
+      <th scope="row">Importance</th>
+      <td><%= @task.importance %></td>
+    </tr>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+    <tr>
+  		<th scope="row">Completed</th>
+  		<td><%= @task.completed ? '完了' : '未完了' %></td>
+  	</tr>
 
-<p>
-  <strong>Expired at:</strong>
-  <%= @task.expired_at %>
-</p>
+  </table>
+</div>
 
-<p>
-  <strong>Importance:</strong>
-  <%= @task.importance %>
-</p>
+<div class="link">
+  <div class="edit">
+    <%= link_to 'Edit', edit_task_path(@task) %>
+  </div>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @task.completed ? '完了' : '未完了' %>
-</p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+  <div class="back">
+    <%= link_to 'Back', tasks_path %>
+  </div>
+</div>

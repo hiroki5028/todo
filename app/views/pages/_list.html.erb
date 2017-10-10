@@ -1,0 +1,28 @@
+<% @tasks.each do |task| %>
+<nav>
+  <ul>
+    <li>
+      <div class="list">
+
+        <div class="list-title <%= task.expired_at && task.expired_at < Time.zone.now ? 'expired' : '' %>">
+          <%= task.title %>
+        </div>
+
+        <div class="list-link">
+          <%= link_to 'destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="list-link">
+          <%= link_to 'edit', edit_task_path(task) %>
+        </div>
+        <div class="list-link">
+          <%= link_to 'show', task %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</nav>
+<% end %>
+<br>
+<div class="new-task">
+<%= link_to 'New-Task', new_task_path %>
+</div>

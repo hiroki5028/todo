@@ -4,7 +4,7 @@
     <li>
       <div class="list">
 
-        <div class="list-title <%= task.expired_at && task.expired_at < Time.zone.now ? 'expired' : '' %>">
+        <div id="<%= task.id %>" class="list-title <%= task.expired_at && task.expired_at < Time.zone.now ? 'expired' : '' %>" >
           <%= task.title %>
         </div>
 

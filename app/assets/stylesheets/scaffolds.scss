@@ -128,7 +128,6 @@ label {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /*display: none;*/
 
     &.expired {
       color: red;
@@ -232,7 +231,6 @@ label {
   }
 
   table.show td {
-    /*width: 600px;*/
     padding: 10px;
     vertical-align: top;
     border-bottom: 1px solid #ccc;

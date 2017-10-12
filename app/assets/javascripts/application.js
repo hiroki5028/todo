@@ -28,4 +28,20 @@ $(function(){
       }
     });
   });
+  $(".destroy").on('click',function(){
+    var task = $(this);
+    var taskId = task.attr('id');
+    console.log(task)
+
+    $.ajax({
+      type: "DELETE",
+      url: "/tasks/" + taskId,
+      dataType: "json",
+      data: { id: taskId },
+      // data: { id: },
+      success: function(html) {
+        task.parents("nav").remove();
+      }
+    });
+  });
 });

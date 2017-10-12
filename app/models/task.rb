@@ -10,7 +10,7 @@ class Task < ApplicationRecord
   validates :importance, inclusion:{ in: 1..10 }
 
   #expired_at 過去日はerrors
-  validate :expired_at_validator
+  validate :expired_at_validator, on: :create
 
   #過去日判定メソッド（期限）
   def expired_at_validator

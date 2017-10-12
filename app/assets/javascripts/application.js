@@ -31,17 +31,37 @@ $(function(){
   $(".destroy").on('click',function(){
     var task = $(this);
     var taskId = task.attr('id');
-    console.log(task)
 
     $.ajax({
       type: "DELETE",
       url: "/tasks/" + taskId,
       dataType: "json",
       data: { id: taskId },
-      // data: { id: },
       success: function(html) {
         task.parents("nav").remove();
       }
     });
+  });
+
+  $(".top > form").submit(function() {
+    $('form h2').remove();
+    var fd = new FormData($('form').get(0));
+    $.ajax({
+      type: 'POST',
+      url: '/tasks',
+      data: fd,
+      processData: false,
+      contentType: false,
+      dataType: 'json'
+    }).done(function(data) {
+      $("form")[0].reset();
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+      var errors = JSON.parse(jqXHR.responseText).errors;
+
+      errors.forEach(function(val, index, ar) {
+        $('form').prepend('<h2 class=new-error>' + val + '</h2>');
+      });
+    })
+    return false;
   });
 });

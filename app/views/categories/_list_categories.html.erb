@@ -1,0 +1,25 @@
+<% categories.each do |category| %>
+<nav>
+  <ul>
+    <li>
+      <div class="category">
+        <div id="<%= category.id %>" class="category-title" >
+          <%= category.title %>
+        </div>
+        <div class="category-link">
+            <a type="button" class="category-destroy" id="<%= category.id %>">
+              destroy
+            </a>
+        </div>
+        <div class="category-link">
+          <%= link_to 'edit', edit_category_path(category) %>
+        </div>
+        <div class="category-link">
+          <%= link_to 'show', category %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</nav>
+<% end %>
+<br>

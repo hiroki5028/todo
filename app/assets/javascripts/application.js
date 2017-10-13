@@ -43,6 +43,21 @@ $(function(){
     });
   });
 
+  $(".category-destroy").on('click',function(){
+    var category = $(this);
+    var categoryId = category.attr('id');
+
+    $.ajax({
+      type: "DELETE",
+      url: "/categories/" + categoryId,
+      dataType: "json",
+      data: { id: categoryId },
+      success: function(html) {
+        category.parents("nav").remove();
+      }
+    });
+  });
+
   $(".top > form").submit(function() {
     $('form h2').remove();
     var fd = new FormData($('form').get(0));
@@ -58,7 +73,7 @@ $(function(){
       id = data.id;
       title = data.title;
       completed = data.completed
-      console.log(completed);
+
       var html =
         '<nav>' +
           '<ul>' +
@@ -89,7 +104,56 @@ $(function(){
 
     }).fail(function(jqXHR, textStatus, errorThrown) {
       var errors = JSON.parse(jqXHR.responseText).errors;
+      errors.forEach(function(val, index, ar) {
+        $('form').prepend('<h2 class=new-error>' + val + '</h2>');
+      });
+    })
+    return false;
+  });
 
+  $(".category > form").submit(function() {
+    $('form h2').remove();
+    var fd = new FormData($('form').get(0));
+    $.ajax({
+      type: 'POST',
+      url: '/categories',
+      data: fd,
+      processData: false,
+      contentType: false,
+      dataType: 'json'
+    }).done(function(data) {
+      $("form")[0].reset();
+      id = data.id;
+      title = data.title;
+
+      var html =
+        '<nav>' +
+          '<ul>' +
+            '<li>' +
+              '<div class="category"> ' +
+                '<div id=' + id + ' class="category-title">' +
+                  title +
+                '</div>' +
+                '<div class="category-link">' +
+                  '<a type="button" class="destroy" id=' + id + '>' +
+                    'destroy' +
+                  '</a>' +
+                '</div>' +
+                '<div class="category-link">' +
+                  '<a href="/categories/' + id + '/edit">edit</a>' +
+                '</div>' +
+                '<div class="category-link">' +
+                  '<a href="/categories/' + id + '">show</a>' +
+                '</div>' +
+              '</div>' +
+            '</li>' +
+          '</ul>' +
+        '</nav>';
+
+      $('nav:last').after(html);
+
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+      var errors = JSON.parse(jqXHR.responseText).errors;
       errors.forEach(function(val, index, ar) {
         $('form').prepend('<h2 class=new-error>' + val + '</h2>');
       });

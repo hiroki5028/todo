@@ -3,5 +3,4 @@ class PagesController < ApplicationController
     @tasks = Task.where(completed: false)
     @task = Task.new
   end
-
 end

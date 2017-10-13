@@ -55,6 +55,38 @@ $(function(){
       dataType: 'json'
     }).done(function(data) {
       $("form")[0].reset();
+      id = data.id;
+      title = data.title;
+      completed = data.completed
+      console.log(completed);
+      var html =
+        '<nav>' +
+          '<ul>' +
+            '<li>' +
+              '<div class="list"> ' +
+                '<div id=' + id + ' class="list-title">' +
+                  title +
+                '</div>' +
+                '<div class="list-link">' +
+                  '<a type="button" class="destroy" id=' + id + '>' +
+                    'destroy' +
+                  '</a>' +
+                '</div>' +
+                '<div class="list-link">' +
+                  '<a href="/tasks/' + id + '/edit">edit</a>' +
+                '</div>' +
+                '<div class="list-link">' +
+                  '<a href="/tasks/' + id + '">show</a>' +
+                '</div>' +
+              '</div>' +
+            '</li>' +
+          '</ul>' +
+        '</nav>';
+
+      if (!completed){
+        $('nav:last').after(html);
+      }
+
     }).fail(function(jqXHR, textStatus, errorThrown) {
       var errors = JSON.parse(jqXHR.responseText).errors;
 

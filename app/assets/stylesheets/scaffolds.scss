@@ -235,3 +235,13 @@ label {
     vertical-align: top;
     border-bottom: 1px solid #ccc;
   }
+
+  h2.new-error {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }

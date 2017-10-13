@@ -3,3 +3,7 @@
 <h1>未完了タスク一覧</h1>
 
 <%= render "list", tasks: @tasks %>
+
+<div class="top">
+  <%= render "tasks/form", task: @task %>
+</div>

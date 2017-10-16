@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @tasks = Task.where(category_id: params[:id])
   end
 
   # GET /categories/1/edit

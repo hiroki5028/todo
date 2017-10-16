@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Show</h1>
+<h1>Tasks By Category</h1>
 <div>
   <table class="show">
   	<tr>
-  		<th scope="row">Title</th>
+  		<th scope="row">Category</th>
   		<td><%= @category.title %></td>
   	</tr>
   </table>
 </div>
+
+<%= render "pages/list", tasks: @tasks %>
 
 <div class="link">
   <div class="edit">

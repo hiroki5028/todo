@@ -37,10 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form_for @task do |f| %>
-    <%= f.label :category_id %>
-    <%= f.collection_select :category_id, Category.all, :id, :title %>
-    <% end %>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :title %>
   </div>
 
   <div class="actions">

@@ -89,9 +89,13 @@ label {
  div.header-link {
     margin: 10px;
     padding: 15px 0;
-    text-align: left;
+    text-align: center;
     display: table-cell;
     width: 50px;
+
+    &.category {
+      width: 80px;
+    }
  }
 
  nav {
@@ -122,7 +126,7 @@ label {
     border-bottom: none;
  }
 
- div.list-title {
+ div.list-title, .category-title {
     float: left;
     width: 350px;
     white-space: nowrap;
@@ -134,7 +138,7 @@ label {
     }
  }
 
- div.list-link {
+ div.list-link, .category-link {
     font-size: 13px;
     float: right;
     margin-right: 5px;
@@ -142,7 +146,7 @@ label {
     text-decoration: none;
  }
 
- div.list-link a {
+ div.list-link a, .category-link a {
     background-color:white;
     border:1px solid LightGrey;
     padding:1px 8px;
@@ -151,7 +155,7 @@ label {
     text-decoration: none;
  }
 
- div.list-link :hover{
+ div.list-link :hover, .category-link :hover {
     background-color:LightGrey;
  }
 
@@ -219,20 +223,19 @@ label {
     text-align: left;
     line-height: 1.5;
     border-top: 1px solid #ccc;
+    vertical-align: top;
+
   }
 
   table.show th {
-    width: 120px;
     padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
     border-bottom: 1px solid #ccc;
     background: #efefef;
   }
 
   table.show td {
+    width: 100%;
     padding: 10px;
-    vertical-align: top;
     border-bottom: 1px solid #ccc;
   }
 

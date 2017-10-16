@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Category一覧</h1>
+
+<%= render "list_categories", categories: @categories %>
+
+<div class="category">
+  <%= render "form_categories", category: @category %>
+</div>

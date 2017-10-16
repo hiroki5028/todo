@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  belongs_to :category
+
   #Validation
   #title  length_100以内 必須
   validates :title, length:{ maximum: 100 }, presence: true

@@ -36,6 +36,11 @@
     <%= form.check_box :completed, {}, 'true', 'false' %>
   </div>
 
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, :include_blank => true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

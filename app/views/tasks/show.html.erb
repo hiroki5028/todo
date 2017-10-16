@@ -19,11 +19,14 @@
       <th scope="row">Importance</th>
       <td><%= @task.importance %></td>
     </tr>
-
     <tr>
   		<th scope="row">Completed</th>
   		<td><%= @task.completed ? '完了' : '未完了' %></td>
   	</tr>
+    <tr>
+      <th scope="row">Category</th>
+      <td><%= @task.category.title %></td>
+    </tr>
 
   </table>
 </div>

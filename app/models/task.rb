@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :category
+  belongs_to :users
 
   #Validation
   #title  length_100以内 必須

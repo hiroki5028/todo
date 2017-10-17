@@ -57,7 +57,7 @@ $(function(){
       }
     });
   });
-
+  
   $(".top > form").submit(function() {
     $('form h2').remove();
     var fd = new FormData($('form').get(0));

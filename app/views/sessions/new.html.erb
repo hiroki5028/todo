@@ -1,0 +1,20 @@
+<p><font color=red><%= flash[:alert] %></font></p>
+
+<h1>Log in</h1>
+
+<div class="sessions">
+  <%= form_for(:session, url: login_path) do |f| %>
+    <div class="field">
+      <%= f.label :address %>
+      <%= f.email_field :address, id: :sessions_address %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, id: :sessions_password %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+  <p>New user? <%= link_to "Sign up now!", sign_up_path %></p>
+</div>

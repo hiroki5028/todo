@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.where(completed: true)
+    @tasks = current_user.tasks.where(completed: true)
   end
 
   # GET /tasks/1
@@ -19,7 +19,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     respond_to do |format|
       if @task.save
         format.json { render :show, status: :created, location: @task }

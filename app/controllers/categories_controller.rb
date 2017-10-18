@@ -4,14 +4,14 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
-    @category = Category.new
+      @categories =current_user.categories
+      @category = Category.new
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @tasks = Task.where(category_id: params[:id])
+      @tasks = current_user.tasks.where(category_id: params[:id])
   end
 
   # GET /categories/1/edit
@@ -21,8 +21,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(category_params)
-
+    @category = current_user.categories.build(category_params)
     respond_to do |format|
       if @category.save
         format.json { render :show, status: :created, location: @category }
@@ -61,6 +60,6 @@ class CategoriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def category_params
-    params.require(:category).permit(:title)
+      params.require(:category).permit(:title)
   end
 end

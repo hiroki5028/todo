@@ -15,9 +15,6 @@
       <div class="header-title">
         やることリスト
       </div>
-      <div class="header-user-name">
-        【<%= current_user.name %>】
-      </div>
       <div class="header-link category">
         <%= link_to 'カテゴリー', categories_path %>
       </div>
@@ -28,9 +25,22 @@
         <%= link_to '完了', tasks_path %>
       </div>
     </header>
+    <ul>
+      <% if logged_in? then %>
+        <div class="top-logout">
+          <%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="top-user-name">
+          【　<%= current_user.name %>　】
+        </div>
+      <% else %>
+        <div class="top-login">
+          <%= link_to 'ログイン', login_path %>
+        </div>
+      <% end %>
+    </ul>
     <div class="container">
       <%= yield %>
     </div>
   </body>
-
 </html>

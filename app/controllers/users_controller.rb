@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :destroy]
+  skip_before_action :require_login, only: [:new, :create]
 
   def new
     @user = User.new
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to controller: :sessions, action: :new
+      redirect_to controller: :categories, action: :index
     else
       render :new
     end

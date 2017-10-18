@@ -57,7 +57,7 @@ $(function(){
       }
     });
   });
-  
+
   $(".top > form").submit(function() {
     $('form h2').remove();
     var fd = new FormData($('form').get(0));
@@ -99,7 +99,7 @@ $(function(){
         '</nav>';
 
       if (!completed){
-        $('nav:last').after(html);
+        $('br').before(html);
       }
 
     }).fail(function(jqXHR, textStatus, errorThrown) {
@@ -150,7 +150,7 @@ $(function(){
           '</ul>' +
         '</nav>';
 
-      $('nav:last').after(html);
+      $('br').before(html);
 
     }).fail(function(jqXHR, textStatus, errorThrown) {
       var errors = JSON.parse(jqXHR.responseText).errors;

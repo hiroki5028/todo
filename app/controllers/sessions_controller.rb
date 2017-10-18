@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
   end
 
@@ -7,14 +9,15 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
-      redirect_to controller: :pages, action: :top
+      redirect_to controller: :categories, action: :index
     else
+      flash.now.alert = "もう一度入力してください。"
       render :new
     end
   end
 
   def destroy
-    log_out
-    redirect_to root_url
+    logout
+    render :new
   end
 end

@@ -1,6 +1,6 @@
 class TaskidsController < ApplicationController
   def index
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
 
     @task.completed = !@task.completed
 
